@@ -1,4 +1,4 @@
-import { Wishlist } from "./wishlist.js";
+import Wishlist from "./wishlist";
 
 
 let form = document.querySelector("#submitForm");
@@ -12,6 +12,7 @@ let btnRemove = document.querySelector(".removeBtn");
 let wishlistUl = document.querySelector("#wishlistUl");
 
 let newWishlist = new Wishlist();
+form.addEventListener("submit", addCar);
 
 function showCarDetails(car){
   paraMake.textContent = car.make;
@@ -38,8 +39,6 @@ function addCar(event) {
   newWishlist.add(make, model, year);
   updateDOMList();
 }
-
-form.addEventListener("submit", addCar);
 
 function removeCar() {
   let carId = Number(btnRemove.getAttribute("data-carId"));
